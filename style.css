@@ -1,0 +1,142 @@
+/* General body styles */
+body {
+    font-family: Arial, sans-serif;
+    background-color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+/* Container for the game */
+.container {
+    text-align: center;
+    background-color: rgb(215, 107, 107);
+    border-radius: 10px;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    position: relative; /* Positioning context for the teddy bear */
+}
+
+/* Game board styles */
+.game-board {
+    display: grid;
+    grid-template-columns: repeat(3, 100px);
+    grid-template-rows: repeat(3, 100px);
+    gap: 5px;
+    margin: 20px auto;
+}
+
+/* Cell styles */
+.cell {
+    width: 100px;
+    height: 100px;
+    background-color: #e0e0e0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.cell:hover {
+    background-color: #d0d0d0;
+}
+
+.result {
+    font-size: 1.5em;
+    margin: 20px 0;
+}
+
+.moves {
+    background-color: #f9f9f9;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+button {
+    padding: 10px 20px;
+    font-size: 1em;
+    cursor: pointer;
+    color: black;
+    background-color: aqua;
+}
+
+/* Winning cell styles */
+.cell.winner {
+    background-color: rgba(224, 207, 110, 0.7); /* Gold color for winning cells */
+    transform: scale(1.1); /* Slightly enlarge winning cells */
+    transition: transform 0.5s, background-color 0.5s;
+}
+
+.hidden {
+    visibility: hidden; /* Hide the moves initially */
+}
+
+
+
+/* Color paper styles */
+.color-paper {
+    position: absolute;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%; /* Make the color papers circular */
+    opacity: 0.8;
+    animation: fall 2s forwards; /* Animation for falling effect */
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(100vh); /* Move down to the bottom of the viewport */
+    }
+}
+.teddy-bear {
+    display: none; /* Initially hide the first teddy bear */
+    width: 100px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    left: 0%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 10;
+}
+
+.teddy-bear.visible {
+    display: block;
+    opacity: 1;
+}
+
+.teddy-bear1 {
+    display: none; /* Initially hide the second teddy bear */
+    width: 100px;
+    height: auto;
+    position: absolute;
+    top: 50%;
+    right: 16%;
+    transform: translateY(-50%);
+    opacity: 0;
+    transition: opacity 0.5s ease-in-out;
+    z-index: 10;
+}
+
+.teddy-bear1.visible {
+    display: block;
+    opacity: 1;
+}
+
+
+#winner {
+    margin-top: 20px;
+    font-size: 20px;
+    color: green;
+}
+
+
